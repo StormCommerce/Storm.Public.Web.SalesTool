@@ -1,0 +1,3 @@
+﻿Install Visual Studio Extensions:
+
+"Web Compiler" by Mads Kristensen to compile scss and js files according to compilerconfig.json.

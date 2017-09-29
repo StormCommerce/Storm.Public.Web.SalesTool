@@ -1,0 +1,8 @@
+﻿These are the API requests that needs to be inserted into AccessClient.Cache.xml to enhance performance of the Sales Tool
+
+  <Item name="GetApplication"/>
+  <Item name="GetCustomer" redirectformat="Customer{0}" propertypath="Id"/>
+  <Item name="SearchCustomer" />
+  <Item name="GetStore"/>
+  <Item name="ListOrders"/>
+  <Item name="GetOrderByNo"/>

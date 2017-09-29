@@ -1,0 +1,10 @@
+﻿[
+  {
+    "outputFile": "Client/salestool.css",
+    "inputFile": "Client/salestool.scss"
+  },
+  {
+    "outputFile": "Client/salestool.min.js",
+    "inputFile": "Client/salestool.js"
+  }
+]

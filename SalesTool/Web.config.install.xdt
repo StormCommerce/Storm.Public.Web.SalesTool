@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <configSections>
+    <section name="enferno.salesTool" type="Enferno.Public.Web.SalesTool.SalesToolSection, Enferno.Public.Web.SalesTool" xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)" />
+  </configSections>
+  <enferno.salesTool useStoreDelivery="false" useOrders="true" deliveryNotificationEmailXsltPath="~/App_Data/deliveryNotificationEmail.xslt" deliveryNotificationEmailSubject="Din order finns att hämta i butiken" deliveryNotePrintXsltPath="~/App_Data/deliveryNotePrint.xslt" xdt:Transform="InsertIfMissing" />
+</configuration>
