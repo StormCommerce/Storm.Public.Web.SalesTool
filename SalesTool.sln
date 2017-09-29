@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesTool", "SalesTool\SalesTool.csproj", "{93BB66FE-6CB5-4BF5-A97F-61B5F9C84B42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesTool.Tests", "SalesTool.Tests\SalesTool.Tests.csproj", "{16F784DF-7F41-48BA-82B8-660051B763DB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CF194069-0DA8-428F-9681-54C1EE29EA5C}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		Enferno.Public.Web.SalesTool.nuspec = Enferno.Public.Web.SalesTool.nuspec
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{3B11F460-4EF1-4167-9D03-9B351770B7A1}"
+	ProjectSection(SolutionItems) = preProject
+		NuGet\New-NuGetPackage.ps1 = NuGet\New-NuGetPackage.ps1
+		NuGet\nuget.exe = NuGet\nuget.exe
+		Readme.txt = Readme.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93BB66FE-6CB5-4BF5-A97F-61B5F9C84B42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93BB66FE-6CB5-4BF5-A97F-61B5F9C84B42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93BB66FE-6CB5-4BF5-A97F-61B5F9C84B42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93BB66FE-6CB5-4BF5-A97F-61B5F9C84B42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16F784DF-7F41-48BA-82B8-660051B763DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16F784DF-7F41-48BA-82B8-660051B763DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16F784DF-7F41-48BA-82B8-660051B763DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16F784DF-7F41-48BA-82B8-660051B763DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35;packages\Unity.Interception.2.1.505.2\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Logging.5.0.505.1\lib\NET35
+		SolutionGuid = {7A36890C-1CB3-4300-AC98-E9618E24C225}
+	EndGlobalSection
+EndGlobal

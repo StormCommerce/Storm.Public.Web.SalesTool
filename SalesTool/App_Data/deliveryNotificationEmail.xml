@@ -1,0 +1,97 @@
+﻿<?xml version="1.0"?>
+<OrderModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.enferno.se">
+  <Id>3456789</Id>
+  <orderNumber>123456</orderNumber>
+  <OrderDate>2015-08-25T14:14:12.557</OrderDate>
+  <Buyer>
+    <Id>123456</Id>
+    <Name>Buyer Testington</Name>
+    <Email>buyer.testington@gmail.com</Email>
+    <CompanyId>0</CompanyId>
+  </Buyer>
+  <BuyerAddress />
+  <ShipTo>
+    <Id>0</Id>
+    <Name>Buyer Testington</Name>
+    <CompanyId>0</CompanyId>
+  </ShipTo>
+  <ShipToAddress>
+    <CareOf />
+    <Address1>Tester Road 123</Address1>
+    <Address2 />
+    <Zip>12345</Zip>
+    <City>Testville</City>
+    <Country>United Testdom</Country>
+  </ShipToAddress>
+  <DeliveryMethodName>Pickup at store</DeliveryMethodName>
+  <PaymentMethodName>CreditCard</PaymentMethodName>
+  <Total>3916.00</Total>
+  <Vat>979.00</Vat>
+  <Status>Confirmed</Status>
+  <PickupStore>
+    <Id>12345</Id>
+    <Name>Main street</Name>
+    <Phone>012-345678</Phone>
+    <Address>
+      <CareOf />
+      <Address1>Main street 12</Address1>
+      <Address2 />
+      <Zip>12345</Zip>
+      <City>Testville</City>
+      <Country>United Testdom</Country>
+    </Address>
+  </PickupStore>
+  <Rows>
+    <OrderRowModel>
+      <RowNumber>1.0000</RowNumber>
+      <PartNo>SKU12345</PartNo>
+      <Name>A really nice product</Name>
+      <Price>3916.00</Price>
+      <VatRate>1.25</VatRate>
+      <Discount>0</Discount>
+      <Quantity>1.000</Quantity>
+      <Total>3916.00000</Total>
+    </OrderRowModel>
+    <OrderRowModel>
+      <RowNumber>2.0000</RowNumber>
+      <PartNo>SkuFreight</PartNo>
+      <Name>Freight</Name>
+      <Price>0</Price>
+      <VatRate>1.25</VatRate>
+      <Discount>0</Discount>
+      <Quantity>1.000</Quantity>
+      <Total>0.000</Total>
+    </OrderRowModel>
+  </Rows>
+  <DeliveryNotes>
+    <DeliveryNoteModel>
+      <Id>0</Id>
+      <Number>2345678</Number>
+      <orderNumber>123456</orderNumber>
+      <ParcelCode>1234567890UT</ParcelCode>
+      <Status>Confirmed</Status>
+      <Rows>
+        <OrderRowModel>
+          <RowNumber>1.0000</RowNumber>
+          <PartNo>SKU12345</PartNo>
+          <Name>A really nice product</Name>
+          <Price>3916.00</Price>
+          <VatRate>1.25</VatRate>
+          <Discount>0</Discount>
+          <Quantity>1.000</Quantity>
+          <Total>3916.00000</Total>
+        </OrderRowModel>
+        <OrderRowModel>
+          <RowNumber>2.0000</RowNumber>
+          <PartNo>SkuFreight</PartNo>
+          <Name>Freight</Name>
+          <Price>0</Price>
+          <VatRate>1.25</VatRate>
+          <Discount>0</Discount>
+          <Quantity>1.000</Quantity>
+          <Total>0.000</Total>
+        </OrderRowModel>
+      </Rows>
+    </DeliveryNoteModel>
+  </DeliveryNotes>
+</OrderModel>
