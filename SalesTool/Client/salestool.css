@@ -198,6 +198,19 @@
       background: #4e4e5c; }
     #sales-tool .sales-tool-scroll::-webkit-scrollbar-thumb {
       background: #75758a; }
+  #sales-tool .sales-tool-popup {
+    position: absolute;
+    top: 50%;
+    width: 400px;
+    left: 50%;
+    height: 200px;
+    margin: -100px -200px;
+    z-index: 99995;
+    padding: 20px;
+    text-align: left;
+    list-style: none;
+    background-color: #272930;
+    border: solid 1px #4e4e5c; }
   #sales-tool .sales-tool-dropdown-menu {
     position: absolute;
     top: 100%;

@@ -2,7 +2,8 @@
 
   <Item name="GetApplication"/>
   <Item name="GetCustomer" redirectformat="Customer{0}" propertypath="Id"/>
-  <Item name="SearchCustomer" />
+  <Item name="GetCustomerByAccountId"/>
   <Item name="GetStore"/>
-  <Item name="ListOrders"/>
-  <Item name="GetOrderByNo"/>
+  <Item name="ListStores2"/>
+  <Item name="SearchCustomer" />
+  <Item name="UpdateBuyer" duration="0" redirectformat="Basket{0};Checkout{0}" propertypath="Basket.Id"/>

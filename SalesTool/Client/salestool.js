@@ -25,7 +25,7 @@
                             'Cancelled': 'Cancelled',
                             'ChangeTo': 'Change to',
                             'Company': 'Company',
-                            'Confirmed': 'Placed order',
+                            'Confirmed': 'Ready for incoming',
                             'CreditControl': 'Credit control',
                             'Customer': 'Customer',
                             'CustomerOrders': 'Customer orders',
@@ -38,8 +38,12 @@
                             'Email': 'Email',
                             'ErpConfirmed': 'Confirmed',
                             'Filter': 'Filter',
+                            'Incoming': 'Ready for incoming',
                             'Invoiced': 'Invoiced',
                             'Name': 'Name',
+                            'NewReservationOrderHeader': 'NEW RESERVATION ORDER',
+                            'NewReservationOrder': 'A reservation order has been placed that needs to be reserved.',
+                            'ShowReservationOrders': 'Show reservations',
                             'NotifyCheckedOrders': 'Remind checked orders',
                             'NotifiedOrder': 'Reminders has been sent to customer.',
                             'NotifiedOrders': 'Reminders has been sent to checked orders.',
@@ -86,7 +90,7 @@
                             'Cancelled': 'Avbeställd',
                             'ChangeTo': 'Ändra till',
                             'Company': 'Företag',
-                            'Confirmed': 'Beställd',
+                            'Confirmed': 'Ska inlevereras',
                             'CreditControl': 'Kreditkontroll',
                             'Customer': 'Person',
                             'CustomerOrders': 'Kundorder',
@@ -99,8 +103,12 @@
                             'Email': 'E-post',
                             'ErpConfirmed': 'Godkänd',
                             'Filter': 'Filter',
+                            'Incoming': 'Ska inlevereras',
                             'Invoiced': 'Fakturerad',
                             'Name': 'Namn',
+                            'NewReservationOrderHeader': 'NY RESERVATIONSORDER',
+                            'NewReservationOrder': 'En reservationsorder har lagts som behöver hanteras.',
+                            'ShowReservationOrders': 'Visa reservationer',
                             'NotifyCheckedOrders': 'Påminn markerade order',
                             'NotifiedOrder': 'Påminnelser har skickats till kunden.',
                             'NotifiedOrders': 'Påminnelser har skickats till markerade order.',
@@ -249,6 +257,8 @@
                         return self.unfilteredStoreList().filter(function (item) { return self.compareStatus(item.Status, 'ReadyForReservation') }).length;
                     }, self);
                     self.showStoreList = ko.observable(false);
+                    self.newReservationOrder = ko.observable(false);
+                    self.newReservationCount = 0;
                     self.filter = ko.observable('Confirmed');
                     self.showFilter = ko.observable(false);
                     self.filterLabel = ko.pureComputed(function () { return self.parent.getCulture('Filter') + (self.filter() ? ': ' + self.parent.getCulture(self.filter()) : ''); }, self);
@@ -295,8 +305,13 @@
                         self.filter('ReadyForReservation');
                         self.parent.closeWindows();
                         self.parent.preventBubble(data, event);
+                        self.newReservationOrder(false);
                         self.loadStoreList();
                     };
+
+                    self.closeNewReservationOrder = function () {
+                        self.newReservationOrder(false);
+                    }
 
                     self.loadStoreList = function () {
                         self.showStoreList(true);
@@ -309,7 +324,12 @@
                         $.get('/api/salestool/order/liststore')
                         .done(function (list) {
                             self.unfilteredStoreList(list);
-                            self.loadedStore = self.parent.salesTool.StoreId();
+                            if (self.parent.salesTool)
+                                self.loadedStore = self.parent.salesTool.StoreId();
+                            if (self.reservationCount() > self.newReservationCount) {
+                                self.newReservationOrder(true);
+                            }
+                            self.newReservationCount = self.reservationCount();
                         })
                         .fail(function (error) {
                             self.parent.showError(error);
@@ -427,11 +447,11 @@
                             case 'NotPickedUp':
                                 return 'PickedUp'; break;
                             case 'PickedUp':
-                                return 'Delivered'; break;
+                                return null; break;
                             case 'ReadyForReservation':
                                 return 'Reserved'; break;
                             case 'Reserved':
-                                return 'Delivered'; break;
+                                return 'PickedUp'; break;
                             case 'Delivered':
                             case 'Cancelled':
                                 return 'ReadyForPickup'; break;
@@ -459,6 +479,7 @@
                             contentType: 'application/json',
                         })
                         .done(function (order) {
+                            self.loadStoreListImpl();
                             self.order(order);
                         })
                         .fail(function (error) {

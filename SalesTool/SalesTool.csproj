@@ -155,12 +155,6 @@
     <Content Include="App_Data\AccessClient.Cache.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="..\..\..\..\..\..\..\Users\Tomas.Isby\Desktop\deliveryNotePrint.xml">
-      <Link>App_Data\deliveryNotePrint.xml</Link>
-    </Content>
-    <Content Include="App_Data\deliveryNotePrint.xslt" />
-    <Content Include="App_Data\deliveryNotificationEmail.xml" />
-    <Content Include="App_Data\deliveryNotificationEmail.xslt" />
     <None Include="Client\salestool.scss" />
     <Content Include="App_Data\SalesTool.AccessClient.Cache.txt" />
     <Content Include="Client\salestool.css" />
