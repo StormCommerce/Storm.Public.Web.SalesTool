@@ -300,6 +300,21 @@ $size-normal: 14px;
         }
     }
 
+    .sales-tool-popup {
+        position: absolute;
+        top: 50%;
+        width:400px;
+        left: 50%;
+        height:200px;
+        margin:-100px -200px;
+        z-index: 99995;
+        padding: 20px;
+        text-align: left;
+        list-style: none;
+        background-color: $darkest-gray;
+        border: solid 1px $dark-gray;
+    }
+
     .sales-tool-dropdown-menu {
         position: absolute;
         top: 100%;

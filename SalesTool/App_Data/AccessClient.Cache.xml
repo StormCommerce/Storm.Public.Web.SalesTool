@@ -3,82 +3,8 @@
   <Item name="GetApplication"/>
   <Item name="GetCustomer" redirectformat="Customer{0}" propertypath="Id"/>
   <Item name="GetCustomerByAccountId"/>
-  <!--<Item name="GetOrderByNo" redirectformat="Order{0}" propertypath="OrderNumber"/>-->
   <Item name="GetStore"/>
-  <!--<Item name="ListOrders"/>-->
   <Item name="ListStores2"/>
   <Item name="SearchCustomer" />
-  <!--<Item name="SearchOrder" />-->
   <Item name="UpdateBuyer" duration="0" redirectformat="Basket{0};Checkout{0}" propertypath="Basket.Id"/>
-  <!--<Item name="UpdateDeliveryNotePackage" duration="0" redirectformat="Order{0}" propertypath="OrderNumber"/>-->
 </CacheConfiguration>
-<!--<?xml version="1.0" encoding="utf-8"?>
-<CacheConfiguration name="AccessClient" duration="300">
-  <Item name="ClearBasket" duration="0" redirectformat="Basket{0};Checkout{0}" propertypath="Id"/>
-  <Item name="CreateCustomer" duration="0" redirectformat="Customer{0}" propertypath="Id"/>
-  <Item name="DeleteBasketItem" duration="0" redirectformat="Basket{0};Checkout{0}" propertypath="Id"/>
-  <Item name="GetAgreementAccount"/>
-  <Item name="GetApplication"/>
-  <Item name="GetBasket" redirectformat="Basket{0}" propertypath="Id"/>
-  <Item name="GetCheckout" redirectformat="Checkout{0}" propertypath="Basket.Id"/>
-  <Item name="GetCustomer" redirectformat="Customer{0}" propertypath="Id"/>
-  <Item name="GetCustomerByEmail" redirectformat="Customer{0}" propertypath="Id"/>
-  <Item name="GetManufacturer"/>
-  <Item name="GetNavigationStructure"/>
-  <Item name="GetProduct"/>
-  <Item name="InsertBasketItem" duration="0" redirectformat="Basket{0};Checkout{0}" propertypath="Id"/>
-  <Item name="ListBestsellingProducts"/>
-  <Item name="ListBestsellingProducts2"/>
-  <Item name="ListCategories"/>
-  <Item name="ListCategoryItems"/>
-  <Item name="ListFlags"/>
-  <Item name="ListManufacturers"/>
-  <Item name="ListManufacturersEx"/>
-  <Item name="ListNavigationNodes"/>
-  <Item name="ListNavigationNodesEx"/>
-  <Item name="ListParametricInfo" />
-  <Item name="ListParametricValues" />
-  <Item name="ListPopularProducts"/>
-  <Item name="ListPopularProducts2"/>
-  <Item name="ListPopularProductsByNode"/>
-  <Item name="ListPopularProductsByNode2"/>
-  <Item name="ListProductAccessories"/>
-  <Item name="ListProductAccessories2"/>
-  <Item name="ListProductCrossSell"/>
-  <Item name="ListProductCrossSell2"/>
-  <Item name="ListProductFilters"/>
-  <Item name="ListProductFilters2"/>
-  <Item name="ListProductFiltersByNode"/>
-  <Item name="ListProductFiltersByNode2"/>
-  <Item name="ListProductFlags"/>
-  <Item name="ListProductItemFilterValues"/>
-  <Item name="ListProductItemFilterValuesById"/>
-  <Item name="ListProductItemFilterValuesByIds"/>
-  <Item name="ListProductItemFilterValuesByNode"/>
-  <Item name="ListProductParametrics"/>
-  <Item name="ListProductReviews"/>
-  <Item name="ListProducts"/>
-  <Item name="ListProducts2"/>
-  <Item name="ListProductsById"/>
-  <Item name="ListProductsByIds"/>
-  <Item name="ListProductsByNode"/>
-  <Item name="ListProductsByNode2"/>
-  <Item name="ListProductsInFamilies2"/>
-  <Item name="ListProductsInFamilies"/>
-  <Item name="ListProductUpsell"/>
-  <Item name="ListProductUpsell2"/>
-  <Item name="Login" duration="0" redirectformat="Customer{0}" propertypath="Id"/>
-  <Item name="LoginAgreementAccount"/>
-  <Item name="SetDefaultCompany" duration="0" redirectformat="Customer{0}" propertypath="Id"/>
-  <Item name="PaymentCancel" duration="0" redirectformat="Basket{0};Checkout{0}" propertypath="Id"/>
-  <Item name="UpdateBasket" duration="0" redirectformat="Basket{0};Checkout{0}" propertypath="Id"/>
-  <Item name="UpdateBasketItem" duration="0" redirectformat="Basket{0};Checkout{0}" propertypath="Id"/>
-  <Item name="UpdateBuyer" duration="0" redirectformat="Basket{0};Checkout{0}" propertypath="Basket.Id"/>
-  <Item name="UpdatePayer" duration="0" redirectformat="Basket{0};Checkout{0}" propertypath="Basket.Id"/>
-  <Item name="UpdateShipTo" duration="0" redirectformat="Basket{0};Checkout{0}" propertypath="Basket.Id"/>
-  <Item name="UpdateCustomer" duration="0" redirectformat="Customer{0}" propertypath="Id"/>
-  <Item name="UpdateCompany" duration="0" redirectformat="Customer{0}" propertypath="Id"/>
-  <Item name="UpdateCustomerDeliveryAddress" duration="0" redirectformat="Customer{0}" propertypath="Id"/>
-  <Item name="UpdateDeliveryMethod" duration="0" redirectformat="Basket{0};Checkout{0}" propertypath="Basket.Id"/>
-  <Item name="UpdatePaymentMethod" duration="0" redirectformat="Basket{0};Checkout{0}" propertypath="Basket.Id"/>
-</CacheConfiguration>-->

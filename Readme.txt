@@ -17,8 +17,7 @@ PUBLISH NUGET PACKAGE
 
 5. In PowerShell, use "cd"-command to change directory to "NuGet" folder in this project:
 
-	d:
-	cd \Dev\CodePlex\enfernopublic\Enferno.Public.Web.SalesTool\Release\1.2.0\NuGet
+	cd \[YourGitDir]\SalesTool\NuGet
 
 6. If this is the first time you build a package for NuGet, then you need to provide credentials to push a package. Use this PowerShell command:
 
@@ -26,14 +25,12 @@ PUBLISH NUGET PACKAGE
 
 7. Start NuGet Build, replace path with path to your project folder:
 
-	./New-NuGetPackage.ps1 -NuSpecFilePath "D:\Dev\CodePlex\enfernopublic\Enferno.Public.Web.SalesTool\Release\1.2.0\Enferno.Public.Web.SalesTool.nuspec" -DoNotUpdateNuSpecFile -PackOptions "-Build -Symbols -Properties Configuration=Debug"
+	./New-NuGetPackage.ps1 -NuSpecFilePath "..\Enferno.Public.Web.SalesTool.nuspec" -DoNotUpdateNuSpecFile -PackOptions "-Build -Symbols -Properties Configuration=Debug"
 	
 	[ NuGet Package Version Number ] Dialog : [ OK ]
 	[ Enter Release Notes For New Package ] Dialog : [ OK ]
 	[ Do you want to push this package ] Dialog : [ Yes ]
 
-8. Check in solution and use version and change descripion as comment.
+8. Commit and Sync solution to GitHub and use version and change descripion as comment.
 
-9. Check in and merge changes in Release to Main. If Major release Bransh a new release folder.
-
-10. Register release on Codeplex/GitHub
+10. Register release on GitHub
