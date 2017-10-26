@@ -626,6 +626,10 @@
                         return value + self.getCulture('DecimalSign') + decimal;
                     };
 
+                    self.formatDate = function (isoDate) {
+                        return isoDate.replace('T', ' ').substr(0, 16);
+                    }
+
                     self.getCulture = function (key) {
                         return self.culture.getCulture(key, self.salesTool ? self.salesTool.CultureCode() : 'en');
                     };

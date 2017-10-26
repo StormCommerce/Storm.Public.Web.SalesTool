@@ -243,7 +243,7 @@ namespace Enferno.Public.Web.SalesTool
                 html += @"
                         </td>
                         <td data-bind=""text: OrderNumber""></td>
-                        <td data-bind=""text: OrderDate.substr(0, 10)"" class=""sales-tool-nowrap""></td>
+                        <td data-bind=""text: $root.formatDate(OrderDate)"" class=""sales-tool-nowrap""></td>
                         <td data-bind=""text: CompanyName""></td>
                         <td data-bind=""text: CustomerName""></td>
                         <td data-bind=""text: Email""></td>
@@ -276,7 +276,7 @@ namespace Enferno.Public.Web.SalesTool
                 <h1 data-bind=""text: order.itemHeader""></h1>
                 <div class=""sales-tool-col-one-third"">
                     <label data-bind=""text: getCulture('OrderDate') + ':'""></label>
-                    <span data-bind=""text: order.order() ? order.order().OrderDate.substr(0,10) : ''""></span><br />
+                    <span data-bind=""text: order.order() ? $root.formatDate(order.order().OrderDate) : ''""></span><br />
                     <label data-bind=""text: getCulture('Status') + ':'""></label>
                     <span data-bind=""text: order.order() ? getCulture(order.order().Status) : ''""></span><br />
                     <label data-bind=""text: getCulture('Shipping') + ':'""></label>
