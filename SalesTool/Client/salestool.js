@@ -25,7 +25,7 @@
                             'Cancelled': 'Cancelled',
                             'ChangeTo': 'Change to',
                             'Company': 'Company',
-                            'Confirmed': 'Ready for incoming',
+                            'Confirmed': 'Confirmed',
                             'CreditControl': 'Credit control',
                             'Customer': 'Customer',
                             'CustomerOrders': 'Customer orders',
@@ -38,7 +38,6 @@
                             'Email': 'Email',
                             'ErpConfirmed': 'Confirmed',
                             'Filter': 'Filter',
-                            'Incoming': 'Ready for incoming',
                             'Invoiced': 'Invoiced',
                             'Name': 'Name',
                             'NewReservationOrderHeader': 'NEW RESERVATION ORDER',
@@ -64,6 +63,7 @@
                             'Quantity': 'Quantity',
                             'ReadyForPickup': 'Ready for pickup',
                             'ReadyForReservation': 'Ready for reservation',
+                            'ReadyForIncoming': 'Ready for incoming',
                             'ReservationOrders': 'Reservation',
                             'Reserved': 'Reserved',
                             'SearchCustomer': 'Search customer',
@@ -90,7 +90,7 @@
                             'Cancelled': 'Avbeställd',
                             'ChangeTo': 'Ändra till',
                             'Company': 'Företag',
-                            'Confirmed': 'Ska inlevereras',
+                            'Confirmed': 'Godkänd',
                             'CreditControl': 'Kreditkontroll',
                             'Customer': 'Person',
                             'CustomerOrders': 'Kundorder',
@@ -103,7 +103,6 @@
                             'Email': 'E-post',
                             'ErpConfirmed': 'Godkänd',
                             'Filter': 'Filter',
-                            'Incoming': 'Ska inlevereras',
                             'Invoiced': 'Fakturerad',
                             'Name': 'Namn',
                             'NewReservationOrderHeader': 'NY RESERVATIONSORDER',
@@ -129,6 +128,7 @@
                             'Quantity': 'Antal',
                             'ReadyForPickup': 'Inlevererad',
                             'ReadyForReservation': 'Ska reserveras',
+                            'ReadyForIncoming': 'Ska inlevereras',
                             'ReservationOrders': 'Reservation',
                             'Reserved': 'Reserverad',
                             'SearchCustomer': 'Sök kund',
@@ -404,6 +404,7 @@
                             return true;
                         switch (a) {
                             case 'ErpConfirmed':
+                            case 'Delivered':
                             case 'Invoiced':
                             case 'PartlyDelivered':
                                 return b == 'Confirmed';
@@ -441,6 +442,7 @@
                             case 'ErpConfirmed':
                             case 'Invoiced':
                             case 'PartlyDelivered':
+                            case 'Delivered':
                                 return 'ReadyForPickup'; break;
                             case 'ReadyForPickup':
                             case 'Acknowledged':
@@ -452,7 +454,6 @@
                                 return 'Reserved'; break;
                             case 'Reserved':
                                 return 'PickedUp'; break;
-                            case 'Delivered':
                             case 'Cancelled':
                                 return 'ReadyForPickup'; break;
                         }

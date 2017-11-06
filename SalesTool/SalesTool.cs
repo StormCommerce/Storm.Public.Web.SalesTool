@@ -196,7 +196,7 @@ namespace Enferno.Public.Web.SalesTool
                         </div>
                         <ul class=""sales-tool-dropdown-menu"" data-bind=""visible: order.showFilter"">
                             <li><a data-bind=""text: getCulture('ShowAll'), click: $root.order.setFilter('ShowAll')""></a></li>
-                            <li><a data-bind=""text: getCulture('Incoming'), click: $root.order.setFilter('Confirmed')""></a></li>";
+                            <li><a data-bind=""text: getCulture('ReadyForIncoming'), click: $root.order.setFilter('Confirmed')""></a></li>";
                 if (config.UseStorePickup)
                 {
                     html += @"

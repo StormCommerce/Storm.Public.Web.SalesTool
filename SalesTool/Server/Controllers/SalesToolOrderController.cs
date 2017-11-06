@@ -55,7 +55,7 @@ namespace Enferno.Public.Web.SalesTool.Server.Controllers
                 var list = Client.OrderProxy.ListOrders(
                     StormContext.CompanyId.HasValue ? StormContext.CompanyId.ToString() : null,
                     StormContext.CustomerId.HasValue ? StormContext.CustomerId.ToString() : null,
-                    null, null, null, null, "0", "50", StormContext.CultureCode);
+                    null, null, null, null, "0", "1000", StormContext.CultureCode);
                 return list.Items
                     .OrderByDescending(item => item.OrderDate)
                     .Select(_orderMapper.MapToOrderItemModel).ToList();
@@ -71,6 +71,13 @@ namespace Enferno.Public.Web.SalesTool.Server.Controllers
         [HttpGet]
         public List<OrderItemModel> ListStore()
         {
+            return ListStore(null);
+        } 
+
+        [Route("liststore/{statusSeed}")]
+        [HttpGet]
+        public List<OrderItemModel> ListStore(string statusSeed)
+        {
             var list = new List<OrderItemModel>();
             if (!StormContext.DivisionId.HasValue)
                 return list;
@@ -79,10 +86,11 @@ namespace Enferno.Public.Web.SalesTool.Server.Controllers
                 return list;
             try
             {
-                var result = Client.OrderProxy.ListOrders2(null, null, null, null, null, null, "0", "1000", store.Code, StormContext.CultureCode);
+                var result = Client.OrderProxy.ListOrders2(null, null, statusSeed, null, null, null, "0", "1000", store.Code, StormContext.CultureCode);
                 return result.Items
                     .OrderByDescending(item => item.OrderDate)
-                    .Select(_orderMapper.MapToOrderItemModel).ToList();
+                    .Select(_orderMapper.MapToOrderItemModel)
+                    .ToList();
             }
             catch (Exception ex)
             {

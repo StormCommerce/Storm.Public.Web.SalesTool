@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>Enferno.Public.Web.SalesTool</id>
-    <version>1.2.1.1</version>
+    <version>1.2.1.2</version>
     <!--Change version in asseblyinfo.cs -->
     <title>Enferno.Public.Web.SalesTool</title>
     <authors>Storm Commerce AB</authors>
@@ -11,7 +11,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Enferno UI component for sales staff to impersonate customers and place orders and quotations.</description>
     <releaseNotes>
-      Added a dateFormat method that displays time on all dates
+      Added Delivered to orderstatus that are ready for incoming.
     </releaseNotes>
     <copyright>Copyright 2016</copyright>
     <tags>Storm Commerce Public Web Sales Tool</tags>
