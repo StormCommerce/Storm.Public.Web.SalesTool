@@ -25,7 +25,7 @@ PUBLISH NUGET PACKAGE
 
 7. Start NuGet Build, replace path with path to your project folder:
 
-	./New-NuGetPackage.ps1 -NuSpecFilePath "..\Enferno.Public.Web.SalesTool.nuspec" -DoNotUpdateNuSpecFile -PackOptions "-Build -Symbols -Properties Configuration=Debug"
+	./New-NuGetPackage.ps1 -NuSpecFilePath "..\Enferno.Public.Web.SalesTool.nuspec" -DoNotUpdateNuSpecFile -PackOptions "-Build -Symbols -Properties Configuration=Debug"-PushOptions " -Source nuget.org"
 	
 	[ NuGet Package Version Number ] Dialog : [ OK ]
 	[ Enter Release Notes For New Package ] Dialog : [ OK ]

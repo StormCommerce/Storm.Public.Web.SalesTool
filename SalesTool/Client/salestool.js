@@ -318,6 +318,7 @@
                         if (self.loadedStore == self.parent.salesTool.StoreId())
                             return;
                         self.parent.isLoading(true);
+                        self.loadStoreListImpl();
                     }
                         
                     self.loadStoreListImpl = function () {
@@ -605,6 +606,8 @@
                         $.post('/api/salestool/setstore', { '': data.Id })
                         .done(function (salesTool) {
                             self.dataBind(salesTool);
+                            if(self.order)
+                                self.order.loadStoreListImpl();
                         })
                         .fail(function (error) {
                             self.showError(error);
