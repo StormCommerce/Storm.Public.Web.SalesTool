@@ -40,13 +40,11 @@
       <HintPath>..\packages\Enferno.Public.1.0.17\lib\net45\Enferno.Public.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Enferno.StormApiClient, Version=1.5.6127.20731, Culture=neutral, PublicKeyToken=33afbde1e215b864, processorArchitecture=MSIL">
-      <HintPath>..\packages\Enferno.StormApiClient.1.8.0.0\lib\net45\Enferno.StormApiClient.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Enferno.StormApiClient, Version=1.5.6724.22949, Culture=neutral, PublicKeyToken=33afbde1e215b864, processorArchitecture=MSIL">
+      <HintPath>..\packages\Enferno.StormApiClient.1.8.14\lib\net45\Enferno.StormApiClient.dll</HintPath>
     </Reference>
-    <Reference Include="Enferno.Web.StormUtils, Version=1.5.6127.20731, Culture=neutral, PublicKeyToken=33afbde1e215b864, processorArchitecture=MSIL">
-      <HintPath>..\packages\Enferno.StormApiClient.1.8.0.0\lib\net45\Enferno.Web.StormUtils.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Enferno.Web.StormUtils, Version=1.5.6724.22950, Culture=neutral, PublicKeyToken=33afbde1e215b864, processorArchitecture=MSIL">
+      <HintPath>..\packages\Enferno.StormApiClient.1.8.14\lib\net45\Enferno.Web.StormUtils.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">

@@ -46,6 +46,7 @@ namespace Enferno.Public.Web.SalesTool.Server.Mappers
             {
                 Id = order.Id,
                 OrderNumber = order.OrderNo,
+                BasketId = order.QuotationId,
                 OrderDate = order.OrderDate,
                 Buyer = new CustomerItemModel
                 {
@@ -126,7 +127,7 @@ namespace Enferno.Public.Web.SalesTool.Server.Mappers
             return model;
         }
 
-        public OrderItemModel MapToOrderItemModel(Order order)
+        public OrderItemModel MapToOrderItemModel(OrderListItem order)
         {
             OrderStatus status;
             Enum.TryParse(order.Status, out status);
@@ -134,6 +135,7 @@ namespace Enferno.Public.Web.SalesTool.Server.Mappers
             {
                 Id = order.Id,
                 OrderNumber = order.OrderNo,
+                BasketId = order.QuotationId,
                 OrderDate = order.OrderDate,
                 CompanyId = order.SellTo.Company?.Id.GetValueOrDefault() ?? 0,
                 CompanyName = order.SellTo.Company?.Name ?? "",

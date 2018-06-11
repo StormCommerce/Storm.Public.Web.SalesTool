@@ -6,6 +6,7 @@ namespace Enferno.Public.Web.SalesTool.Server.Models
     {
         public long Id;
         public string OrderNumber;
+        public int? BasketId;
         public DateTime OrderDate;
         public int CompanyId;
         public string CompanyName;

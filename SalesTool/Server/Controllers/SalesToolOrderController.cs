@@ -52,10 +52,10 @@ namespace Enferno.Public.Web.SalesTool.Server.Controllers
                 return new List<OrderItemModel>();
             try
             {
-                var list = Client.OrderProxy.ListOrders(
+                var list = Client.OrderProxy.ListOrders3(
                     StormContext.CompanyId.HasValue ? StormContext.CompanyId.ToString() : null,
                     StormContext.CustomerId.HasValue ? StormContext.CustomerId.ToString() : null,
-                    null, null, null, null, "0", "1000", StormContext.CultureCode);
+                    null, null, null, null, "0", "1000", null, StormContext.CultureCode);
                 return list.Items
                     .OrderByDescending(item => item.OrderDate)
                     .Select(_orderMapper.MapToOrderItemModel).ToList();
@@ -86,7 +86,7 @@ namespace Enferno.Public.Web.SalesTool.Server.Controllers
                 return list;
             try
             {
-                var result = Client.OrderProxy.ListOrders2(null, null, statusSeed, null, null, null, "0", "1000", store.Code, StormContext.CultureCode);
+                var result = Client.OrderProxy.ListOrders3(null, null, statusSeed, null, null, null, "0", "1000", store.Code, StormContext.CultureCode);
                 return result.Items
                     .OrderByDescending(item => item.OrderDate)
                     .Select(_orderMapper.MapToOrderItemModel)

@@ -195,26 +195,26 @@ namespace Enferno.Public.Web.SalesTool
                             <i class=""sales-tool-caret""></i>
                         </div>
                         <ul class=""sales-tool-dropdown-menu"" data-bind=""visible: order.showFilter"">
-                            <li><a data-bind=""text: getCulture('ShowAll'), click: $root.order.setFilter('ShowAll')""></a></li>
-                            <li><a data-bind=""text: getCulture('ReadyForIncoming'), click: $root.order.setFilter('Confirmed')""></a></li>";
+                            <li><a data-bind=""text: getCulture('ShowAll'), click: function() { $root.order.setFilter('ShowAll') }""></a></li>
+                            <li><a data-bind=""text: getCulture('ReadyForIncoming'), click: function() { $root.order.setFilter('Confirmed') }""></a></li>";
                 if (config.UseStorePickup)
                 {
                     html += @"
-                            <li><a data-bind=""text: getCulture('ReadyForPickup'), click: $root.order.setFilter('ReadyForPickup')""></a></li>";
+                            <li><a data-bind=""text: getCulture('ReadyForPickup'), click: function() { $root.order.setFilter('ReadyForPickup') }""></a></li>";
                 }
                 if (config.UseStoreReservation)
                 {
                     html += @"
-                            <li><a data-bind=""text: getCulture('ReadyForReservation'), click: $root.order.setFilter('ReadyForReservation')""></a></li>
-                            <li><a data-bind=""text: getCulture('Reserved'), click: $root.order.setFilter('Reserved')""></a></li>";
+                            <li><a data-bind=""text: getCulture('ReadyForReservation'), click: function() { $root.order.setFilter('ReadyForReservation') }""></a></li>
+                            <li><a data-bind=""text: getCulture('Reserved'), click: function() { $root.order.setFilter('Reserved') }""></a></li>";
                 }
                 if (config.UseStorePickup || config.UseStoreReservation)
                 {
                     html += @"
-                            <li><a data-bind=""text: getCulture('PickedUp'), click: $root.order.setFilter('PickedUp')""></a></li>";
+                            <li><a data-bind=""text: getCulture('PickedUp'), click: function() { $root.order.setFilter('PickedUp') }""></a></li>";
                 }
                 html += @"
-                            <li><a data-bind=""text: getCulture('Cancelled'), click: $root.order.setFilter('Cancelled')""></a></li>
+                            <li><a data-bind=""text: getCulture('Cancelled'), click: function() { $root.order.setFilter('Cancelled') }""></a></li>
                         </ul>
                     </div>
                     <a class=""sales-tool-button"" data-bind=""click: closeWindows""><i class=""sales-tool-close""></i></a>
@@ -224,6 +224,7 @@ namespace Enferno.Public.Web.SalesTool
                     <tr>
                         <th></th>
                         <th data-bind=""text: getCulture('OrderNo')""></th>
+                        <th data-bind=""text: getCulture('BasketId')""></th>
                         <th data-bind=""text: getCulture('Date')""></th>
                         <th data-bind=""text: getCulture('Company')""></th>
                         <th data-bind=""text: getCulture('Customer')""></th>
@@ -243,6 +244,7 @@ namespace Enferno.Public.Web.SalesTool
                 html += @"
                         </td>
                         <td data-bind=""text: OrderNumber""></td>
+                        <td data-bind=""text: BasketId""></td>
                         <td data-bind=""text: $root.formatDate(OrderDate)"" class=""sales-tool-nowrap""></td>
                         <td data-bind=""text: CompanyName""></td>
                         <td data-bind=""text: CustomerName""></td>
@@ -275,6 +277,8 @@ namespace Enferno.Public.Web.SalesTool
                 </div>
                 <h1 data-bind=""text: order.itemHeader""></h1>
                 <div class=""sales-tool-col-one-third"">
+                    <label data-bind=""text: getCulture('BasketId') + ':'""></label>
+                    <span data-bind=""text: order.order() ? order.order().BasketId : ''""></span><br />
                     <label data-bind=""text: getCulture('OrderDate') + ':'""></label>
                     <span data-bind=""text: order.order() ? $root.formatDate(order.order().OrderDate) : ''""></span><br />
                     <label data-bind=""text: getCulture('Status') + ':'""></label>

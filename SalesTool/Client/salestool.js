@@ -20,6 +20,7 @@
                             'Acknowledged': 'Notified',
                             'Allocation': 'Allocation',
                             'BackOrder': 'Back order',
+                            'BasketId': 'Basket Id',
                             'Buyer': 'Buyer',
                             'Cancel': 'Cancel order',
                             'Cancelled': 'Cancelled',
@@ -85,6 +86,7 @@
                             'Acknowledged': 'Meddelad',
                             'Allocation': 'Plockas',
                             'BackOrder': 'Restorder',
+                            'BasketId': 'KundkorgsId',
                             'Buyer': 'Köpare',
                             'Cancel': 'Avbeställ order',
                             'Cancelled': 'Avbeställd',
@@ -245,24 +247,21 @@
                     self.showMenu = ko.observable(false);
                     self.searchText = ko.observable();
                     self.list = ko.pureComputed(function () {
-                        return self.showStoreList() ? self.unfilteredStoreList().filter(applyFilter) : self.unfilteredList().filter(applyFilter);
+                        return self.showStoreList() ? self.filteredStoreList() : self.unfilteredList().filter(applyFilter);
                     }, self);
                     self.unfilteredList = ko.observableArray([]);
-                    self.unfilteredStoreList = ko.observableArray([]);
+                    self.filteredStoreList = ko.observableArray([]);
                     self.loadedStore = 0;
-                    self.pickUpCount = ko.pureComputed(function () {
-                        return self.unfilteredStoreList().filter(function (item) { return self.compareStatus(item.Status, 'Confirmed') }).length;
-                    }, self);
-                    self.reservationCount = ko.pureComputed(function () {
-                        return self.unfilteredStoreList().filter(function (item) { return self.compareStatus(item.Status, 'ReadyForReservation') }).length;
-                    }, self);
+                    self.loadedFilter = null;
+                    self.pickUpCount = ko.observable(0);
+                    self.reservationCount = ko.observable(0);
                     self.showStoreList = ko.observable(false);
                     self.newReservationOrder = ko.observable(false);
                     self.newReservationCount = 0;
-                    self.filter = ko.observable('Confirmed');
+                    self.filter = ko.observable('ReadyForReservation');
                     self.showFilter = ko.observable(false);
                     self.filterLabel = ko.pureComputed(function () { return self.parent.getCulture('Filter') + (self.filter() ? ': ' + self.parent.getCulture(self.filter()) : ''); }, self);
-                    self.showList = ko.pureComputed(function () { return (self.showStoreList() ? self.unfilteredStoreList().length : self.unfilteredList().length) > 0 && self.order() == null; }, self);
+                    self.showList = ko.pureComputed(function () { return (self.showStoreList() ? self.filteredStoreList().length : self.unfilteredList().length) > 0 && self.order() == null; }, self);
                     self.order = ko.observable();
                     self.header = ko.observable();
                     self.itemHeader = ko.observable();
@@ -315,22 +314,34 @@
 
                     self.loadStoreList = function () {
                         self.showStoreList(true);
-                        if (self.loadedStore == self.parent.salesTool.StoreId())
+                        if (self.loadedStore == self.parent.salesTool.StoreId() && self.loadedFilter == self.filter())
                             return;
                         self.parent.isLoading(true);
                         self.loadStoreListImpl();
                     }
                         
                     self.loadStoreListImpl = function () {
-                        $.get('/api/salestool/order/liststore')
+                        var url = '/api/salestool/order/liststore';
+                        if (self.filter() != 'ShowAll')
+                            url = url + '/' + self.statusIdSeed(self.filter());
+                        $.get(url)
                         .done(function (list) {
-                            self.unfilteredStoreList(list);
-                            if (self.parent.salesTool)
+                            self.filteredStoreList(list);
+                            if (self.parent.salesTool) {
                                 self.loadedStore = self.parent.salesTool.StoreId();
-                            if (self.reservationCount() > self.newReservationCount) {
-                                self.newReservationOrder(true);
+                                self.loadedFilter = self.filter();
                             }
-                            self.newReservationCount = self.reservationCount();
+                                self.loadedStore = self.parent.salesTool.StoreId();
+                            if (self.filter() == 'ReadyForReservation') {
+                                self.reservationCount(list.length);
+                                if (self.reservationCount() > self.newReservationCount) {
+                                    self.newReservationOrder(true);
+                                }
+                                self.newReservationCount = self.reservationCount();
+                            }
+                            if (self.filter() == 'Confirmed') {
+                                self.pickUpCount(list.length);
+                            }
                         })
                         .fail(function (error) {
                             self.parent.showError(error);
@@ -338,6 +349,13 @@
                         .complete(function () {
                             self.parent.isLoading(false);
                         });
+                    }
+
+                    self.initStoreList = function () {
+                        self.filter('ReadyForReservation');
+                        self.loadStoreListImpl();
+                        self.filter('Confirmed');
+                        self.loadStoreListImpl();
                     }
 
                     self.searchEnter = function (data, event) {
@@ -391,6 +409,7 @@
                     self.setFilter = function (filter) {
                         self.filter(filter);
                         self.showFilter(false);
+                        self.loadStoreList();
                     }
 
                     self.getChangeToLabel = function (status) {
@@ -414,6 +433,30 @@
                                 return b == 'ReadyForPickup';
                         }
                         return false;
+                    }
+
+                    self.statusIdSeed = function (status) {
+                        switch (status) {
+                            case 'Confirmed': // 2
+                            case 'ErpConfirmed': // 10
+                            case 'Delivered': // 4
+                            case 'Invoiced': // 5
+                            case 'PartlyDelivered': // 8
+                                return '2,10,4,5,8';
+                            case 'ReadyForPickup': // 11
+                            case 'Acknowledged': // 9
+                            case 'NotPickedUp': // 13
+                                return '11,9,13';
+                            case 'PickedUp':
+                                return '12';
+                            case 'ReadyForReservation':
+                                return '19';
+                            case 'Reserved':
+                                return '20';
+                            case 'Cancelled':
+                                return '6';
+                        }
+                        return null;
                     }
 
                     self.getNextStatus = function (status) {
@@ -444,19 +487,19 @@
                             case 'Invoiced':
                             case 'PartlyDelivered':
                             case 'Delivered':
-                                return 'ReadyForPickup'; break;
+                                return 'ReadyForPickup';
                             case 'ReadyForPickup':
                             case 'Acknowledged':
                             case 'NotPickedUp':
-                                return 'PickedUp'; break;
+                                return 'PickedUp';
                             case 'PickedUp':
-                                return null; break;
+                                return null;
                             case 'ReadyForReservation':
-                                return 'Reserved'; break;
+                                return 'Reserved';
                             case 'Reserved':
-                                return 'PickedUp'; break;
+                                return 'PickedUp';
                             case 'Cancelled':
-                                return 'ReadyForPickup'; break;
+                                return 'ReadyForPickup';
                         }
                         return null;
                     }
@@ -553,8 +596,8 @@
                     }
 
                     // Initialize
-                    self.loadStoreListImpl();
-                    window.setInterval(function () { self.loadStoreListImpl(); }, 300000); // Every 5 minutes
+                    self.initStoreList();
+                    window.setInterval(function () { self.loadStoreListImpl(); }, 300000); // Reload every 5 minutes
                 }
                 SalesTool.Order = Order;
 
@@ -607,7 +650,7 @@
                         .done(function (salesTool) {
                             self.dataBind(salesTool);
                             if(self.order)
-                                self.order.loadStoreListImpl();
+                                self.order.initStoreList();
                         })
                         .fail(function (error) {
                             self.showError(error);

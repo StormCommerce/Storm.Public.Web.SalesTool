@@ -21,7 +21,7 @@ PUBLISH NUGET PACKAGE
 
 6. If this is the first time you build a package for NuGet, then you need to provide credentials to push a package. Use this PowerShell command:
 
-	./nuget.exe setApiKey 089212ee-91af-4334-8fa6-8dd05ca07917
+	./nuget.exe setApiKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
 7. Start NuGet Build, replace path with path to your project folder:
 
