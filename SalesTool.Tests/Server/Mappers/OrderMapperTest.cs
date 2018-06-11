@@ -38,7 +38,7 @@ namespace SalesTool.Tests.Server.Mappers
                     City = "Demo city"
                 }
             };
-            var entity = new Order
+            var entity = new OrderListItem
             {
                 Id = 1,
                 OrderNo = "123456",
