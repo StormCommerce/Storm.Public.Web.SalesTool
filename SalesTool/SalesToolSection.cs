@@ -53,6 +53,18 @@ namespace Enferno.Public.Web.SalesTool
                 this["notifyOrder"] = value;
             }
         }
+        [ConfigurationProperty("popupNewReservations", DefaultValue = "false", IsRequired = false)]
+        public bool PopupNewReservations
+        {
+            get
+            {
+                return (bool)this["popupNewReservations"];
+            }
+            set
+            {
+                this["popupNewReservations"] = value;
+            }
+        }
 
         [ConfigurationProperty("deliveryNotePrintXsltPath", DefaultValue = null, IsRequired = false)]
         public string DeliveryNotePrintXsltPath

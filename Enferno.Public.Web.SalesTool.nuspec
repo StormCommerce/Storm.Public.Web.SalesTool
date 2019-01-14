@@ -12,6 +12,7 @@
     <description>Enferno UI component for sales staff to impersonate customers and place orders and quotations.</description>
     <releaseNotes>
       Use new OrderListItem model and only load filtered orders.
+      Added BasketId to order list and detail
     </releaseNotes>
     <copyright>Copyright 2018</copyright>
     <tags>Storm Commerce Public Web Sales Tool</tags>

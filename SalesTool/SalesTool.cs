@@ -71,7 +71,10 @@ namespace Enferno.Public.Web.SalesTool
             <link href='https://fonts.googleapis.com/css?family=Lato:300,700' rel='stylesheet' type='text/css'>
             <div id=""sales-tool"" style=""display: none"" data-bind=""visible: isLoaded"">
             <div id=""sales-tool-backdrop"" data-bind=""visible: isLoading, click: preventBubble""></div>
-            <div id=""sales-tool-loader"" data-bind=""visible: isLoading""></div>
+            <div id=""sales-tool-loader"" data-bind=""visible: isLoading""></div>";
+            if (config.PopupNewReservations)
+            {
+                html += @"
             <!-- ko if: order.newReservationOrder -->
             <div class=""sales-tool-popup"">
                 <a class=""sales-tool-button sales-tool-pull-right"" data-bind=""click: order.closeNewReservationOrder""><i class=""sales-tool-close""></i></a>
@@ -79,8 +82,9 @@ namespace Enferno.Public.Web.SalesTool
                 <p><br /><span data-bind=""text: getCulture('NewReservationOrder')""></span></p>
                 <p><br /><a class=""sales-tool-button"" data-bind=""text: getCulture('ShowReservationOrders') + ' >', click: order.getReservationList""></a></p>
             </div>
-            <!-- /ko -->
-            <nav class=""sales-tool-navbar sales-tool-divider"">
+            <!-- /ko -->";
+            }
+            html += @"<nav class=""sales-tool-navbar sales-tool-divider"">
                 <ul class=""sales-tool-navbar-nav sales-tool-pull-left"">
                     <li class=""sales-tool-navbar-header sales-tool-logo""></li>
                     <li>
