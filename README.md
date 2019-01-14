@@ -113,7 +113,9 @@ Set this to true if you want your stores to be able to check in goods that is to
 Set this to true if you want your stores to be able to handle reservations.
 ### notifyOrder
 Set this to true if you have implemented ISalesToolAction.SendPickupNotification and/or SendReservationNotification to send notifications to customers.
-### DeliveryNotePrintXsltPath
+### popupNewReservations
+Shows a popup when new reservations arrive. Default is false.
+### deliveryNotePrintXsltPath
 An application relative path to your xslt template for printing an order. The NuGet package contains an example of the xml that is to be transformed and an xslt that shows how this can be built. Just add your design to the xslt to be able to print delivery notes. If you leave this empty or omit the configuration then the print button will be removed.
 ### Show prices with VAT included
 SalesTool uses StormContext.showPricesIncVat to determine if prices should be shown with or without VAT. If you want to set this for all new sessions you can add this to the stormSettings configuration section. Just add showPricesIncVat="true" as an attribute to stormSettings and prices will default to be shown with VAT included.
