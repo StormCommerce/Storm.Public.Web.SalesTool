@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>Enferno.Public.Web.SalesTool</id>
-    <version>1.2.1.4</version>
+    <version>1.2.1.5</version>
     <!--Change version in asseblyinfo.cs -->
     <title>Enferno.Public.Web.SalesTool</title>
     <authors>Storm Commerce AB</authors>
@@ -11,8 +11,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Enferno UI component for sales staff to impersonate customers and place orders and quotations.</description>
     <releaseNotes>
-      Use new OrderListItem model and only load filtered orders.
-      Added BasketId to order list and detail
+      Added config for popupNewReservations with default false.
     </releaseNotes>
     <copyright>Copyright 2018</copyright>
     <tags>Storm Commerce Public Web Sales Tool</tags>
