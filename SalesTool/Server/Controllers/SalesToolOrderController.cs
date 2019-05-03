@@ -108,7 +108,9 @@ namespace Enferno.Public.Web.SalesTool.Server.Controllers
 
             try
             {
-                return _orderMapper.MapToOrderModel(Client.OrderProxy.SearchOrder(searchstring, StormContext.CultureCode));
+                var order = Client.OrderProxy.GetOrderByNo(searchstring, StormContext.CultureCode) 
+                            ?? Client.OrderProxy.SearchOrder(searchstring, StormContext.CultureCode);
+                return _orderMapper.MapToOrderModel(order);
             }
             catch (Exception ex)
             {
